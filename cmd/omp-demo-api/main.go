@@ -22,6 +22,7 @@ func main() {
 
 	retranslator := retranslator.NewRetranslator(cfg)
 	retranslator.Start()
+	defer retranslator.Close()
 
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
 
